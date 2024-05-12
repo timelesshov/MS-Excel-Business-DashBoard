@@ -1,0 +1,33 @@
+1.  Total Revenue =SUMX(fact_table,RELATED(products_table[Sales Price]) * fact_table[Quantity Sold])
+
+2.  Cost of Goods Sold =SUMX(fact_table, RELATED(products_table[Cost Price]) * fact_table[Quantity Sold])
+
+3.  Profit Margin =[Total Revenue]-[COGS]
+
+4.  % Profit Margin =DIVIDE([Profit Margin],[Total Revenue])
+
+5.  No of transactions =COUNTROWS(fact_table)
+
+6.  Total Refund =SUMX(fact_table,fact_table[Quantity Returned]*RELATED(products_table[Sales Price]))
+
+7.  Refund Rate =DIVIDE(
+[Total Refund],
+[Total Revenue],
+0)
+
+8.  Number of products =DISTINCTCOUNT(fact_table[Product ID])
+
+9.  Total Quantity =SUM(fact_table[Quantity Sold])
+
+10.  Quantity Returned =SUM(fact_table[Quantity Returned])
+
+11.  Total TARGET =SUM(monthly_store_targets[Monthly Target])
+
+12.  Number od customers =DISTINCTCOUNT(fact_table[Customer ID])
+
+13  Number of locations =DISTINCTCOUNT(Dim_Customer[Location])
+
+14.  Average Customer Age =AVERAGE(Dim_Customer[Customer Age])
+
+15.  Return Rate =DIVIDE([Qty Returned],SUM(fact_table[Quantity Sold]),0)
+
